@@ -1,0 +1,285 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mega Canais - Filmes, Séries e Futebol Ao Vivo</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background-color: #0d1117;
+      color: #e0e0e0;
+    }
+    header {
+      background-color: #f39c12;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      color: #fff;
+    }
+    header p {
+      margin: 5px 0 0;
+      font-size: 1.1em;
+      color: #ffffff;
+    }
+    nav {
+      background: #161b22;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: #f1c40f;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    article {
+      background-color: #1c1f26;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 25px;
+      box-shadow: 0 0 10px rgba(243, 156, 18, 0.15);
+    }
+    article h2 {
+      margin-top: 0;
+      color: #f39c12;
+      font-size: 1.6em;
+    }
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      background-color: #25d366;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-top: 15px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .btn-whatsapp:hover {
+      background-color: #1ebe5d;
+    }
+    .btn-whatsapp::before {
+      content: '📱 ';
+      margin-right: 6px;
+    }
+    footer {
+      background-color: #161b22;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #b0b0b0;
+    }
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.8em;
+      }
+      nav a {
+        display: block;
+        margin: 8px 0;
+      }
+      .btn-whatsapp {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Banner Fixo no Topo -->
+<div style="position: fixed; top: 0; width: 100%; background-color: #f1c40f; color: #000; text-align: center; padding: 10px 15px; font-weight: bold; font-size: 1.1em; z-index: 999; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+  🎉 Comece agora por apenas <span style="color:#e74c3c;">R$ 9,90</span> no primeiro mês!
+</div>
+<div style="height: 50px;"></div>
+
+<header>
+  <h1>Mega Canais 📺</h1>
+  <p>Filmes, séries, futebol e TV ao vivo direto no seu dispositivo</p>
+</header>
+
+<nav>
+  <a href="#">Início</a>
+  <a href="#">Catálogo</a>
+  <a href="#">Futebol</a>
+  <a href="#">Como Funciona</a>
+  <a href="#pacote">Assine Já</a>
+</nav>
+
+<main>
+  <article>
+    <h2>O que oferecemos</h2>
+    <p>Somos uma plataforma online que funciona na sua televisão, celular ou computador. Você terá acesso completo a canais de TV abertos e fechados, futebol ao vivo, mais de 26 mil filmes, 5 mil séries, novelas, conteúdo infantil e até plataformas como Netflix, Prime Video e Disney+.</p>
+  </article>
+
+  <article>
+    <h2>🎁 Experimente Agora – Teste Grátis por 30 Minutos!</h2>
+    <p><strong>Sem cartão, sem cadastro.</strong> Responda rapidamente e comece agora mesmo a assistir!</p>
+    <p style="color: #f1c40f; font-weight: bold;">⚠️ Vagas limitadas para testes hoje. Garanta já o seu!</p>
+
+    <form onsubmit="return enviarParaWhatsApp()" style="display: flex; flex-direction: column; gap: 10px;">
+      <label>Qual seu nome?</label>
+      <input type="text" id="nome" placeholder="Ex: Ana" required />
+
+      <label>Você já usou IPTV antes?</label>
+      <select id="experiencia" required>
+        <option value="">Escolha uma opção</option>
+        <option value="Sim">Sim</option>
+        <option value="Não">Não</option>
+      </select>
+
+      <label>Onde você pretende usar o serviço?</label>
+      <select id="dispositivo" onchange="mostrarSubopcoes()" required>
+        <option value="">Escolha uma opção</option>
+        <option value="Televisão">Televisão</option>
+        <option value="TV Box">TV Box</option>
+        <option value="Celular">Celular</option>
+        <option value="Computador">Computador</option>
+        <option value="Outro">Outro</option>
+      </select>
+
+      <div id="subopcoes" style="display: none; flex-direction: column; gap: 10px;"></div>
+
+      <button type="submit" class="btn-whatsapp">📱 Ativar Teste Grátis</button>
+    </form>
+  </article>
+
+  <article>
+    <h2>Pacote completo para toda a família</h2>
+    <p>Assine hoje e tenha acesso imediato a todos os conteúdos. Diversão garantida com qualidade HD para todos os gostos!</p>
+    <a class="btn-whatsapp" style="background-color:#f1c40f; color:#000;" href="#planos">💰 Quero saber os preços</a>
+    <a class="btn-whatsapp" href="https://wa.me/61998889682?text=Olá,+tenho+interesse+no+pacote+completo+Mega+Canais." target="_blank">Falar com Atendimento</a>
+  </article>
+
+  <article id="planos" style="display: none;">
+    <h2>📊 Planos e Preços</h2>
+    <p>Confira nossos valores promocionais para novos assinantes:</p>
+    <ul style="margin-top: 10px; padding-left: 20px; line-height: 1.6;">
+      <li><strong>1º mês:</strong> R$ 9,90</li>
+      <li><strong>2º mês em diante:</strong> R$ 24,90/mês</li>
+      <li>Sem fidelidade. Cancelamento a qualquer momento.</li>
+      <li>Pagamento via Pix, cartão ou boleto.</li>
+    </ul>
+    <p style="margin-top: 20px; font-size: 1.1em; color: #f1c40f;"><strong>Promoção por tempo limitado!</strong></p>
+    <button onclick="mostrarValoresExtras()" class="btn-whatsapp" style="margin-top: 20px; background-color:#f39c12; color:#fff; border: none; cursor: pointer;">📦 Ver todos os planos</button>
+
+    <div id="valoresExtras" style="display:none; margin-top:20px;">
+      <h3 style="color:#f39c12;">📦 Todos os Planos Disponíveis</h3>
+      <ul style="padding-left: 20px; line-height: 1.8;">
+        <li><strong>2 meses:</strong> R$ 30,00
+          <a class="btn-whatsapp" href="https://wa.me/61998889682?text=Olá,+quero+o+plano+de+2+meses+por+R$30,00" target="_blank" style="margin-left: 10px;">Quero este plano</a>
+        </li>
+        <li><strong>3 meses:</strong> R$ 45,00
+          <a class="btn-whatsapp" href="https://wa.me/61998889682?text=Olá,+quero+o+plano+de+3+meses+por+R$45,00" target="_blank" style="margin-left: 10px;">Quero este plano</a>
+        </li>
+        <li><strong>6 meses:</strong> R$ 90,00
+          <a class="btn-whatsapp" href="https://wa.me/61998889682?text=Olá,+quero+o+plano+de+6+meses+por+R$90,00" target="_blank" style="margin-left: 10px;">Quero este plano</a>
+        </li>
+        <li><strong>12 meses:</strong> R$ 180,00 <span style="color: #f1c40f;">(Mais vantajoso)</span>
+          <a class="btn-whatsapp" href="https://wa.me/61998889682?text=Olá,+quero+o+plano+de+12+meses+por+R$180,00" target="_blank" style="margin-left: 10px;">Quero este plano</a>
+        </li>
+      </ul>
+    </div>
+  </article>
+</main>
+
+<footer>
+  &copy; 2025 Mega Canais. Todos os direitos reservados. | Site desenvolvido por você 😎
+</footer>
+
+<!-- Botão Flutuante WhatsApp -->
+<a href="https://wa.me/61998889682?text=Olá,+gostaria+de+mais+informações+sobre+os+planos+Mega+Canais" target="_blank" style="position: fixed; bottom: 20px; right: 20px; background-color: #25d366; color: white; padding: 12px 18px; border-radius: 50px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 8px rgba(0,0,0,0.3); z-index: 999;">
+  📱 Fale Conosco
+</a>
+
+<script>
+  function mostrarSubopcoes() {
+    const dispositivo = document.getElementById('dispositivo').value;
+    const container = document.getElementById('subopcoes');
+    container.innerHTML = '';
+    container.style.display = 'none';
+
+    if (dispositivo === 'Televisão') {
+      container.innerHTML = `
+        <label>Qual a marca da sua televisão?</label>
+        <select id="subdispositivo">
+          <option value="Samsung">Samsung</option>
+          <option value="LG">LG</option>
+          <option value="TCL">TCL</option>
+          <option value="Philips">Philips</option>
+          <option value="Sony">Sony</option>
+          <option value="AOC">AOC</option>
+        </select>`;
+      container.style.display = 'flex';
+    } else if (dispositivo === 'Celular') {
+      container.innerHTML = `
+        <label>Qual o sistema do celular?</label>
+        <select id="subdispositivo">
+          <option value="Android">Android</option>
+          <option value="iPhone">iPhone</option>
+        </select>`;
+      container.style.display = 'flex';
+    } else if (dispositivo === 'Outro') {
+      container.innerHTML = `
+        <label>Qual dispositivo?</label>
+        <select id="subdispositivo">
+          <option value="Fire TV Stick">Fire TV Stick</option>
+          <option value="Roku">Roku</option>
+          <option value="Xbox/PlayStation">Xbox/PlayStation</option>
+        </select>`;
+      container.style.display = 'flex';
+    }
+  }
+
+  function enviarParaWhatsApp() {
+    const nome = document.getElementById('nome').value.trim();
+    const dispositivo = document.getElementById('dispositivo').value;
+    const experiencia = document.getElementById('experiencia').value;
+    const sub = document.getElementById('subdispositivo');
+    const subdispositivo = sub ? sub.value : '';
+
+    if (!dispositivo || !experiencia) return false;
+
+    let msg = `Olá, quero fazer o teste grátis.`;
+    if (nome) msg += `\nNome: ${nome}`;
+    msg += `\nDispositivo: ${dispositivo}`;
+    if (subdispositivo) msg += ` - ${subdispositivo}`;
+    msg += `\nJá usou IPTV: ${experiencia}`;
+
+    const url = `https://wa.me/61998889682?text=${encodeURIComponent(msg)}`;
+    window.open(url, '_blank');
+    return false;
+  }
+
+  function mostrarValoresExtras() {
+    const box = document.getElementById('valoresExtras');
+    if (box.style.display === 'none') {
+      box.style.display = 'block';
+      box.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  document.querySelector('a[href=\"#planos\"]').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.getElementById('planos').style.display = 'block';
+    document.getElementById('planos').scrollIntoView({ behavior: 'smooth' });
+  });
+</script>
+
+</body>
+</html>
